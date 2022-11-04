@@ -15,21 +15,30 @@ body {
     may revisit later */
 .card {
     border: 1px solid black;
-    border-radius: 25px;
+    border-radius: 10px;
     min-width: 200px;
     min-height: 320px;
     width: 10vmax;
     height: 16vmax;
     margin: 2vmax;
+    display: flex;
 
 }
 
 /* property of CARDS facing DOWN */
 .face-down {
-    background-color: red;
+    background-color: white;
 }
 
 /* property of CARDS facing UP */
 .face-up {
     background-color: #fefefe;
+}
+
+/* card-inner class is the inside portion of the card design */
+.face-down > .card-inner {
+    width: 100%;
+    background-color: red;
+    margin: 10px;
+    border-radius: 10px;
 }
