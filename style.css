@@ -26,14 +26,6 @@ body {
 
 }
 
-/* card-inner class is the inside portion of the card design 
-this class is for all inner cards (may change)*/
-/* .card-inner {
-    border-radius: 10px;
-    width: 100%;
-    margin: 10px;
-} */
-
 /* property of CARDS facing DOWN */
 .face-down {
     background-color: #F8CCC8;
@@ -44,6 +36,10 @@ this class is for all inner cards (may change)*/
     border-radius: 10px;
     width: 100%;
     margin: 10px;
+}
+
+.face-down > .card-inner > .content {
+    opacity: 0;
 }
 
 /* property of CARDS facing UP */
