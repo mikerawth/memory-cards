@@ -22,23 +22,36 @@ body {
     height: 16vmax;
     margin: 2vmax;
     display: flex;
+    justify-content: center;
 
 }
 
+/* card-inner class is the inside portion of the card design 
+this class is for all inner cards (may change)*/
+/* .card-inner {
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px;
+} */
+
 /* property of CARDS facing DOWN */
 .face-down {
-    background-color: white;
+    background-color: #F8CCC8;
+}
+
+.face-down > .card-inner {
+    background-color: red;
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px;
 }
 
 /* property of CARDS facing UP */
 .face-up {
-    background-color: #fefefe;
+    background-color: lightyellow;
 }
 
-/* card-inner class is the inside portion of the card design */
-.face-down > .card-inner {
-    width: 100%;
-    background-color: red;
-    margin: 10px;
-    border-radius: 10px;
+.face-up > .card-inner {
+    align-self: center;
+    font-size: 50px;
 }
