@@ -1,0 +1,35 @@
+body {
+    background-color: beige;
+}
+
+/* table is for all the Cards */
+#table {
+    display: flex;
+
+}
+
+/* property of all CARDS */
+/* height set to be 1.6 times larger than width */
+/* width/height set to be responsive for bigger screens, 
+    with a minimum size on smaller screens
+    may revisit later */
+.card {
+    border: 1px solid black;
+    border-radius: 25px;
+    min-width: 200px;
+    min-height: 320px;
+    width: 10vmax;
+    height: 16vmax;
+    margin: 2vmax;
+
+}
+
+/* property of CARDS facing DOWN */
+.face-down {
+    background-color: red;
+}
+
+/* property of CARDS facing UP */
+.face-up {
+    background-color: #fefefe;
+}
