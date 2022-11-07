@@ -6,17 +6,17 @@ body {
 
 /* table is for all the Cards */
 #table {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 /* Each row contains 4 cards */
 .row {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
 }
 
 /* property of all CARDS */
