@@ -15,6 +15,10 @@ for(c of CONTENT) {
     }
 }
 console.log(content);
+//
+
+// CREATE way of putting content into created cards from cardHtmlToString
+
 // 
 
 function cardHtmlToString(contentString) {
