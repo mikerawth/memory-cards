@@ -1,3 +1,15 @@
+function cardHtmlToString() {
+    cardHtml = 
+    `
+        <div class="card face-down">
+            <div class="card-inner">
+                <span class="content">A</span>
+            </div>
+        </div>
+    `;
+    return cardHtml;
+}
+
 $(document).ready(()=>{
     console.log("created with jQuery")
     
@@ -14,19 +26,12 @@ $(document).ready(()=>{
             let colId = `col-${c}`
             $(`#${rowId}`).append(`
                 <div id="${colId}">
-                    <div class="card face-down">
-                        <div class="card-inner">
-                            <span class="content">A</span>
-                        </div>
-                    </div>
+                    ${cardHtmlToString()}
                 </div>
             `);
         }
     }
-    // DISPLAY: i # of cards
-    for(let i = 0; i < 8; i++) {
-        // $("#table").append(`<img class="card" id="${i}" src="images/card-back-red.png" alt="Playing card's back, red" />`)
-    }
+
 
     // FUNCTION / DEBUG: click on card
     $(".card").click(function(){
