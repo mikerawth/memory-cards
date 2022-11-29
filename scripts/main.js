@@ -7,10 +7,11 @@ let content = []
 // 
 
 // make into function and call
-for(c in CONTENT) {
+for(c of CONTENT) {
     let i = 0;
     while (i < 2) {
-        // content.append(c);
+        content.push(c);
+        i++;
     }
 }
 console.log(content);
