@@ -1,9 +1,9 @@
-function cardHtmlToString() {
+function cardHtmlToString(contentString) {
     cardHtml = 
     `
         <div class="card face-down">
             <div class="card-inner">
-                <span class="content">A</span>
+                <span class="content">${contentString}</span>
             </div>
         </div>
     `;
@@ -26,7 +26,7 @@ $(document).ready(()=>{
             let colId = `col-${c}`
             $(`#${rowId}`).append(`
                 <div id="${colId}">
-                    ${cardHtmlToString()}
+                    ${cardHtmlToString("A")}
                 </div>
             `);
         }
