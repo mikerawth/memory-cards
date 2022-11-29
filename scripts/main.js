@@ -1,3 +1,21 @@
+// temporary / for testing
+const CONTENT = ["A", "B", "C", "D"];
+// 
+
+// var we use to duplicate values and add to #table
+let content = []
+// 
+
+// make into function and call
+for(c in CONTENT) {
+    let i = 0;
+    while (i < 2) {
+        // content.append(c);
+    }
+}
+console.log(content);
+// 
+
 function cardHtmlToString(contentString) {
     cardHtml = 
     `
