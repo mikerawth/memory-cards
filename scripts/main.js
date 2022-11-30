@@ -3,22 +3,46 @@ const CONTENT = ["A", "B", "C", "D"];
 // 
 
 // var we use to duplicate values and add to #table
-let content = []
+
 // 
 
 // make into function and call
-for(c of CONTENT) {
-    let i = 0;
-    while (i < 2) {
-        content.push(c);
-        i++;
+function createContent() {
+    let content = []
+    for(c of CONTENT) {
+        let i = 0;
+        while (i < 2) {
+            content.push(c);
+            i++;
+        }
     }
+    return content;
 }
-console.log(content);
 //
 
 // CREATE way of putting content into created cards from cardHtmlToString
+function createCards() {
+    let content = createContent();
+    let rowAmount = 2;
+    let colAmount = 4;
+    // console.log(`content from createCards():\n${content}`);
+    for(let r = 0; r < rowAmount; r++) {
+        let rowId = `row-${r}`;
+        $("#table").append(`
+            <div id="${rowId}" class="row"></div>
+        `);
+        for(let c = 0; c < colAmount; c++) {
+            let colId = `col-${c}`
+            $(`#${rowId}`).append(`
+                <div id="${colId}">
+                    ${cardHtmlToString(content[c])}
+                </div>
+            `);
+        }
+    }
 
+
+}
 // 
 
 function cardHtmlToString(contentString) {
@@ -37,23 +61,25 @@ $(document).ready(()=>{
     console.log("created with jQuery")
     
 
-    let rowAmount = 2;
-    let colAmount = 4;
+    // let rowAmount = 2;
+    // let colAmount = 4;
 
-    for(let r = 0; r < rowAmount; r++) {
-        let rowId = `row-${r}`;
-        $("#table").append(`
-            <div id="${rowId}" class="row"></div>
-        `);
-        for(let c = 0; c < colAmount; c++) {
-            let colId = `col-${c}`
-            $(`#${rowId}`).append(`
-                <div id="${colId}">
-                    ${cardHtmlToString("A")}
-                </div>
-            `);
-        }
-    }
+    createCards();
+
+    // for(let r = 0; r < rowAmount; r++) {
+    //     let rowId = `row-${r}`;
+    //     $("#table").append(`
+    //         <div id="${rowId}" class="row"></div>
+    //     `);
+    //     for(let c = 0; c < colAmount; c++) {
+    //         let colId = `col-${c}`
+    //         $(`#${rowId}`).append(`
+    //             <div id="${colId}">
+    //                 ${cardHtmlToString("A")}
+    //             </div>
+    //         `);
+    //     }
+    // }
 
 
     // FUNCTION / DEBUG: click on card
