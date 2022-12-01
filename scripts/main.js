@@ -1,12 +1,11 @@
 // temporary / for testing
-const CONTENT = ["A", "B", "C", "D"];
+const DATA = ["A", "B", "C", "D"];
 const COLUMNS = 4;
 // 
 
-// make into function and call
-function createContent() {
+function createContent(data) {
     let content = []
-    for(c of CONTENT) {
+    for(c of data) {
         let i = 0;
         while (i < 2) {
             content.push(c);
@@ -15,9 +14,6 @@ function createContent() {
     }
     return content;
 }
-//
-
-
 
 function cardHtmlToString(contentString) {
     cardHtml = 
@@ -31,15 +27,17 @@ function cardHtmlToString(contentString) {
     return cardHtml;
 }
 
-function createCards(content) {
-    let rowAmount = 2;
-    let colAmount = 4;
-    for(let r = 0; r < rowAmount; r++) {
+function getRows(content, columns) {
+    return Math.ceil(content.length / columns);
+}
+
+function displayCards(content, columns, rows) {
+    for(let r = 0; r < rows; r++) {
         let rowId = `row-${r}`;
         $("#table").append(`
             <div id="${rowId}" class="row"></div>
         `);
-        for(let c = 0; c < colAmount; c++) {
+        for(let c = 0; c < columns; c++) {
             let colId = `col-${c}`
             $(`#${rowId}`).append(`
                 <div id="${colId}">
@@ -50,14 +48,14 @@ function createCards(content) {
     }
 }
 
-
-
-function displayCards(content, columns) {
-    createCards(content);
+function runGame(data, columns) {
+    let content = createContent(data)
+    let rows = getRows(content, columns);
+    displayCards(content, columns, rows)
 
 }
 
 $(document).ready(()=>{
     console.log("created with jQuery")
-    displayCards(CONTENT, COLUMNS);
+    runGame(DATA, COLUMNS);
 })
