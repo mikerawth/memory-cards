@@ -53,10 +53,17 @@ function flipCardToFaceUp(card) {
     $(card).addClass("face-up");
 }
 
+function flipCardToFaceDown(card) {
+    $(card).removeClass("face-up");
+    $(card).addClass("face-down");
+}
+
 function onCardClickEventHandler() {
-    $(".card").click(function (e) { 
-        e.preventDefault();
-        flipCardToFaceUp(this);
+    $(".card").click(function () { 
+        if ($(this).hasClass("face-down"))
+            flipCardToFaceUp(this);
+        else
+            flipCardToFaceDown(this);
     });
 }
 
