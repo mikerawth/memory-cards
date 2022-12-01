@@ -6,11 +6,8 @@ const COLUMNS = 4;
 function createContent(data) {
     let content = []
     for(c of data) {
-        let i = 0;
-        while (i < 2) {
-            content.push(c);
-            i++;
-        }
+        content.push(c);
+        content.push(c);
     }
     return content;
 }
@@ -32,18 +29,20 @@ function getRows(content, columns) {
 }
 
 function displayCards(content, columns, rows) {
+    let contentIndex = 0;
     for(let r = 0; r < rows; r++) {
         let rowId = `row-${r}`;
         $("#table").append(`
             <div id="${rowId}" class="row"></div>
         `);
         for(let c = 0; c < columns; c++) {
-            let colId = `col-${c}`
+            let colId = `col-${c}`;
             $(`#${rowId}`).append(`
                 <div id="${colId}">
-                    ${cardHtmlToString(content[c])}
+                    ${cardHtmlToString(content[contentIndex])}
                 </div>
             `);
+            contentIndex++;
         }
     }
 }
@@ -68,7 +67,9 @@ function onCardClickEventHandler() {
 }
 
 function runGame(data, columns) {
-    let content = createContent(data)
+    let content = createContent(data);
+    // DEBUG:
+    // console.log(content);
     let rows = getRows(content, columns);
     displayCards(content, columns, rows);
     onCardClickEventHandler();
