@@ -1,25 +1,23 @@
 // temporary / for testing
 const CONTENT = ["A", "B", "C", "D"];
-// 
-
-// var we use to duplicate values and add to #table
-let content = []
+const COLUMNS = 4;
 // 
 
 // make into function and call
-for(c of CONTENT) {
-    let i = 0;
-    while (i < 2) {
-        content.push(c);
-        i++;
+function createContent() {
+    let content = []
+    for(c of CONTENT) {
+        let i = 0;
+        while (i < 2) {
+            content.push(c);
+            i++;
+        }
     }
+    return content;
 }
-console.log(content);
 //
 
-// CREATE way of putting content into created cards from cardHtmlToString
 
-// 
 
 function cardHtmlToString(contentString) {
     cardHtml = 
@@ -33,13 +31,9 @@ function cardHtmlToString(contentString) {
     return cardHtml;
 }
 
-$(document).ready(()=>{
-    console.log("created with jQuery")
-    
-
+function createCards(content) {
     let rowAmount = 2;
     let colAmount = 4;
-
     for(let r = 0; r < rowAmount; r++) {
         let rowId = `row-${r}`;
         $("#table").append(`
@@ -49,17 +43,21 @@ $(document).ready(()=>{
             let colId = `col-${c}`
             $(`#${rowId}`).append(`
                 <div id="${colId}">
-                    ${cardHtmlToString("A")}
+                    ${cardHtmlToString(content[c])}
                 </div>
             `);
         }
     }
+}
 
 
-    // FUNCTION / DEBUG: click on card
-    $(".card").click(function(){
-        console.log(`You clicked on a card!`)
-        console.log(this.id)
-    })
 
+function displayCards(content, columns) {
+    createCards(content);
+
+}
+
+$(document).ready(()=>{
+    console.log("created with jQuery")
+    displayCards(CONTENT, COLUMNS);
 })
