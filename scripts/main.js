@@ -48,11 +48,23 @@ function displayCards(content, columns, rows) {
     }
 }
 
+function flipCardToFaceUp(card) {
+    $(card).removeClass("face-down");
+    $(card).addClass("face-up");
+}
+
+function onCardClickEventHandler() {
+    $(".card").click(function (e) { 
+        e.preventDefault();
+        flipCardToFaceUp(this);
+    });
+}
+
 function runGame(data, columns) {
     let content = createContent(data)
     let rows = getRows(content, columns);
-    displayCards(content, columns, rows)
-
+    displayCards(content, columns, rows);
+    onCardClickEventHandler();
 }
 
 $(document).ready(()=>{
