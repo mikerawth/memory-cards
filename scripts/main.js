@@ -61,8 +61,24 @@ function getRows(content, columns) {
     return Math.ceil(content.length / columns);
 }
 
+// create a map of cards to be used for displayCards()
+// return map of each card's value and their indexed value
+function createCardMap(content) {
+    let map = new Map();
+    for (c in content) {
+        map.set(c, content[c]);
+    }
+    return map;
+}
+
 // will display all of the cards on the table
-function displayCards(content, columns, rows) {
+function displayCards(map, columns, rows) {
+    let content = [];
+    console.log(map);
+    for(i of map) {
+        console.log(map.has("5"))
+    }
+    console.log(content);
     let contentIndex = 0;
     for(let r = 0; r < rows; r++) {
         let rowId = `row-${r}`;
@@ -70,9 +86,9 @@ function displayCards(content, columns, rows) {
             <div id="${rowId}" class="row"></div>
         `);
         for(let c = 0; c < columns; c++) {
-            let colId = `col-${c}`;
+            let rowcolId = `${rowId}-col-${c}`;
             $(`#${rowId}`).append(`
-                <div id="${colId}">
+                <div id="${rowcolId}">
                     ${cardHtmlToString(content[contentIndex])}
                 </div>
             `);
@@ -93,6 +109,8 @@ function flipCardToFaceDown(card) {
 
 function onCardClickEventHandler() {
     $(".card").click(function () { 
+        // DEBUG:
+        // console.log(this);
         if ($(this).hasClass("face-down"))
             flipCardToFaceUp(this);
         else
@@ -105,7 +123,8 @@ function runGame(data, columns) {
     // DEBUG:
     // console.log(content);
     let rows = getRows(content, columns);
-    displayCards(content, columns, rows);
+    let cardMap = createCardMap(content);
+    displayCards(cardMap, columns, rows);
     onCardClickEventHandler();
 }
 
