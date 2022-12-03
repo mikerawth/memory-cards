@@ -65,20 +65,14 @@ function getRows(content, columns) {
 // return map of each card's value and their indexed value
 function createCardMap(content) {
     let map = new Map();
-    for (c in content) {
+    for (let c = 0; c < content.length; c++) {
         map.set(c, content[c]);
     }
     return map;
 }
 
 // will display all of the cards on the table
-function displayCards(map, columns, rows) {
-    let content = [];
-    console.log(map);
-    for(i of map) {
-        console.log(map.has("5"))
-    }
-    console.log(content);
+function displayCards(content, columns, rows) {
     let contentIndex = 0;
     for(let r = 0; r < rows; r++) {
         let rowId = `row-${r}`;
@@ -124,7 +118,7 @@ function runGame(data, columns) {
     // console.log(content);
     let rows = getRows(content, columns);
     let cardMap = createCardMap(content);
-    displayCards(cardMap, columns, rows);
+    displayCards(content, columns, rows);
     onCardClickEventHandler();
 }
 
