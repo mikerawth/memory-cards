@@ -101,18 +101,21 @@ function flipCardToFaceDown(card) {
     $(card).addClass("face-down");
 }
 
-function gameStart() {
-    console.log("gameStart() is a go")
+function gameStart(cardMap) {
+    console.log(cardMap);
+    $()
 }
 
 function onCardClickEventHandler() {
     $(".card").click(function () { 
         // DEBUG:
-        // console.log(this);
-        if ($(this).hasClass("face-down"))
+        console.log(this);
+        if ($(this).hasClass("face-down")) {
             flipCardToFaceUp(this);
-        else
+        }
+        else {
             flipCardToFaceDown(this);
+        }
     });
 }
 
@@ -123,7 +126,7 @@ function runGame(data, columns) {
     let rows = getRows(content, columns);
     let cardMap = createCardMap(content);
     displayCards(content, columns, rows);
-    gameStart();
+    gameStart(cardMap);
     onCardClickEventHandler();
 }
 
