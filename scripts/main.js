@@ -101,6 +101,10 @@ function flipCardToFaceDown(card) {
     $(card).addClass("face-down");
 }
 
+function gameStart() {
+    console.log("gameStart() is a go")
+}
+
 function onCardClickEventHandler() {
     $(".card").click(function () { 
         // DEBUG:
@@ -119,6 +123,7 @@ function runGame(data, columns) {
     let rows = getRows(content, columns);
     let cardMap = createCardMap(content);
     displayCards(content, columns, rows);
+    gameStart();
     onCardClickEventHandler();
 }
 
